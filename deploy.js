@@ -1,0 +1,14 @@
+const ethers = require('ethers')
+
+async function main() {
+    const provider = new ethers.providers.JsonRpcSigner('HTTP://127.0.0.1:7545')
+
+    const wallet = new ethers.wallet('a3726b28e71450bb56cf8f48d88e8e0123fa48639c4a222df6aa11f7804657f6',provider);
+}
+
+main().then(()=>{
+    process.exit(0)
+}).catch(()=>{
+    process.exit(1)
+console.log()
+})
