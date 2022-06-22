@@ -12,8 +12,7 @@ async function main() {
     const contract = await contractFactory.deploy() // contract deployment
     const transactionResponse = await contract.deployTransaction; // transaction response
     const transactionReciept = await transactionResponse.wait(1) // get transaction receipt
-    const updateFavoriteNumber = await contract.retrieve()
-    console.log(updateFavoriteNumber.toString())
+    const currentFavoriteNumber = await contract.retrieve()
     // console.log(transactionReciept)
     // const nonce = await wallet.getTransactionCount();
     
