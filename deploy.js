@@ -13,10 +13,10 @@ async function main() {
     const transactionResponse = await contract.deployTransaction; // transaction response
     const transactionReciept = await transactionResponse.wait(1) // get transaction receipt
     // console.log(transactionReciept)
-
+    const nonce = await wallet.getTransactionCount();
     
     const tx = { // create transaction
-        nonce : 17,
+        nonce : nonce,
         gasPrice : 20000000,
         gasLimit : 1000000,
         to : null,
