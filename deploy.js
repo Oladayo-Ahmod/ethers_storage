@@ -4,7 +4,7 @@ const fs = require('fs-extra')
 async function main() {
     const provider = new ethers.providers.JsonRpcProvider('http://127.0.0.1:7545')
 
-    const wallet = new ethers.Wallet('5679d9b63ef9cf2f799bac86b87520b9cfdd37422c599a50d9814e7a06dccbbf',provider);
+    const wallet = new ethers.Wallet('891ffbca2732b14329729483de229231ba35577ffb4d44e1f53a6910758c16fc',provider);
     const abi = fs.readFileSync('./SimpleStorage_sol_SimpleStorage.abi','utf8')
     const binary = fs.readFileSync('./SimpleStorage_sol_SimpleStorage.bin','utf8')
     const contractFactory = new ethers.ContractFactory(abi,binary,wallet)
@@ -27,6 +27,8 @@ async function main() {
     }
 
     const sendTransaction = await wallet.sendTransaction(tx)
+    sendTransaction.wait(1)
+    console.log(sendTransaction)
 
 }
 
