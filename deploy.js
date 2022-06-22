@@ -15,9 +15,9 @@ async function main() {
     const currentFavoriteNumber = await contract.retrieve()
     console.log(`current Number : ${currentFavoriteNumber}`)
     const storeNumber = await contract.store("10")
-    const updatedFavoriteNumber = await contract.retrieve().toString()
-    const response = updatedFavoriteNumber.wait(1)
-    console.log(`updated Number : ${updatedFavoriteNumber}`)
+    const updatedFavoriteNumber = await contract.retrieve()
+    const response = await storeNumber.wait(1)
+    console.log(`updated Number : ${updatedFavoriteNumber.toString()}`)
 
     // console.log(transactionReciept)
     // const nonce = await wallet.getTransactionCount();
