@@ -6,8 +6,8 @@ require("dotenv").config()
 async function main(){
     const wallet = await new ethers.Wallet(process.env.PRIVATE_KEY)
     const encrypted_key = await wallet.encrypt(process.env.PRIVATE_KEY_PASSWORD,process.env.PRIVATE_KEY)
-    fs.writeFileSync('./encrypedKey.json',encrypted_key)
-    // console.log(encrypted_key)
+    fs.writeFileSync('./.encrypedKey.json',encrypted_key)
+    console.log(encrypted_key)
 }
 
 main()
